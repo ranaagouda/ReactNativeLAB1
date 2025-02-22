@@ -56,6 +56,13 @@ export const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: 1,
     borderBottomColor: "lightgray",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  taskItemIcons: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginHorizontal: 5,
   },
   logo: {
     width: 66,
