@@ -5,11 +5,11 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     padding: 20,
-    margin: 20,
   },
   header: {
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 5,
+    marginHorizontal: 20,
   },
   title: {
     fontSize: 24,
@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
   },
   inputContainer: {
     marginBottom: 20,
+    marginHorizontal: 20,
   },
   input: {
     height: 40,
@@ -29,6 +30,8 @@ export const styles = StyleSheet.create({
     backgroundColor: "teal",
     paddingVertical: 10,
     alignItems: "center",
+    borderRadius: 5,
+    justifyContent: "center",
   },
   submitButtonText: {
     color: "white",
@@ -38,6 +41,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginBottom: 20,
+    marginHorizontal: 20,
   },
   filterButton: {
     paddingVertical: 10,
@@ -58,16 +62,24 @@ export const styles = StyleSheet.create({
     borderBottomColor: "lightgray",
     flexDirection: "row",
     justifyContent: "space-between",
+    marginHorizontal: 20,
   },
   taskItemIcons: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginHorizontal: 5,
+    gap: 5,
   },
   logo: {
     width: 66,
     height: 58,
     alignSelf: "center",
     marginVertical: 10,
+  },
+  taskTitle: {
+    fontSize: 16,
+  },
+  taskTitleDone: {
+    textDecorationLine: "line-through",
+    color: "gray",
   },
 });

@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     padding: 20,
-    margin: 20,
   },
   header: {
     alignItems: "center",
@@ -45,13 +44,15 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
   },
-  detailsContainer: {},
+  detailsContainer: {
+    marginHorizontal: 20,
+  },
   detailLabel: {
     fontWeight: "bold",
-    marginTop: 10, // Add some spacing between labels
+    marginTop: 10, 
   },
   detailText: {
-    marginTop: 5, // Add some spacing between text and label
+    marginTop: 5, 
   },
 });
 
