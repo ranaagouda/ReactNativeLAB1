@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { styles } from "../HomeStyles";
 import {
   View,
@@ -17,6 +17,7 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
 import FilterBtns from "../components/FilterBtns";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const HomePage = () => {
   const navigation = useNavigation();
@@ -28,6 +29,34 @@ const HomePage = () => {
     // { id: 3, title: "Third Item", status: "In progress" },
     // { id: 4, title: "Fourth Item", status: "Done" },
   ]);
+  const [selectedStatus, setSelectedStatus] = useState("All");
+
+  useEffect(() => {
+    loadTasks();
+  }, []);
+
+  useEffect(() => {
+    saveTasks();
+  }, [tasks]);
+
+  const saveTasks = async () => {
+    try {
+      await AsyncStorage.setItem("tasks", JSON.stringify(tasks));
+    } catch (error) {
+      console.error("Failed to save tasks to AsyncStorage", error);
+    }
+  };
+
+  const loadTasks = async () => {
+    try {
+      const tasksString = await AsyncStorage.getItem("tasks");
+      if (tasksString) {
+        setTasks(JSON.parse(tasksString));
+      }
+    } catch (error) {
+      console.error("Failed to load tasks from AsyncStorage", error);
+    }
+  };
 
   const addTask = () => {
     if (title.trim() !== "") {
@@ -52,8 +81,6 @@ const HomePage = () => {
       return tasks.filter((task) => task.status === status);
     }
   };
-
-  const [selectedStatus, setSelectedStatus] = useState("All");
 
   const toggleTaskCompletion = (taskId) => {
     setTasks((prevTasks) =>
